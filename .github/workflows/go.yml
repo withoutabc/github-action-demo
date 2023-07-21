@@ -32,7 +32,7 @@ jobs:
       run: go mod download
 
     - name: Build
-      run: go build ./...
+      run: go build -v ./.../...
 
     - name: Run Gosec Security Scanner
       uses: securego/gosec@master
