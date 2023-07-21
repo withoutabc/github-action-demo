@@ -3,9 +3,11 @@ package main
 import "fmt"
 
 func main() {
-	cat()
+	saying := Cat()
+	fmt.Println(saying)
 }
 
-func cat() {
-	fmt.Println("Miao~~~~~~")
+func Cat() string {
+	return "Wang~~~~~~~"
+
 }
