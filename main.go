@@ -8,6 +8,6 @@ func main() {
 }
 
 func Cat() string {
-	return "Wang~~~~~~~"
+	return "Miao~~~~~~~"
 
 }
