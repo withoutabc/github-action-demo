@@ -7,6 +7,8 @@ func main() {
 	fmt.Println(saying)
 }
 
+var password = "1asdasffsdfsdggsgsa"
+
 func Cat() string {
 	return "Miao~~~~~~~"
 }

@@ -21,13 +21,41 @@ jobs:
       with:
         go-version: '1.19'
 
+# 通过使用 actions/cache 动作，可以避免在每次构建过程中重新下载和安装 Go 依赖包，提高构建速度和效率。
+    - uses: actions/cache@v3
+      with:
+        path: ~/go/pkg/mod
+        key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+        restore-keys: |
+          ${{ runner.os }}-go-
+
     - name: Build
       run: go build -v ./...
 
+# 安全检查
+    - name: Run Gosec Security Scanner
+      run:
+        export PATH=$PATH:$(go env GOPATH)/bin
+        go get github.com/securego/gosec/cmd/gosec
+        gosec ./...
+
+# 代码风格
     - name: golangci-lint
       uses: golangci/golangci-lint-action@v2
       with:
        version: v1.53
 
-    - name: Test
+
+
+
+
+
+    - name: Unit Test
       run: go test -v ./...
+
+      #  - uses: docker-practice/actions-setup-docker@master
+      #    timeout-minutes: 12
+      #  - run: |
+      #      docker pull mongo:latest
+      #      docker pull mysql:latest
+      #      docker pull redis:latest
