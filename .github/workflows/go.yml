@@ -24,10 +24,28 @@ jobs:
     - name: Build
       run: go build -v ./...
 
+    - name: Run Gosec Security Scanner
+      uses: securego/gosec@master
+      with:
+        args: ./...
+
+# 代码风格
     - name: golangci-lint
       uses: golangci/golangci-lint-action@v2
       with:
        version: v1.53
 
-    - name: Test
+
+
+
+
+
+    - name: Unit Test
       run: go test -v ./...
+
+      #  - uses: docker-practice/actions-setup-docker@master
+      #    timeout-minutes: 12
+      #  - run: |
+      #      docker pull mongo:latest
+      #      docker pull mysql:latest
+      #      docker pull redis:latest
