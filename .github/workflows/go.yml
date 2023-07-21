@@ -31,8 +31,8 @@ jobs:
     - name: Install Dependencies
       run: go mod download
 
-    # - name: Build
-    #  run: go build -o ./cmd/main.go
+    - name: Build
+      run: go build -v ./...
 
     - name: Run Gosec Security Scanner
       uses: securego/gosec@master
