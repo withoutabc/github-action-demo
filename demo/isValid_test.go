@@ -16,7 +16,7 @@ func TestLengthSmall(t *testing.T) {
 		got := isValid(tc.input)
 		t.Run(name, func(t *testing.T) {
 			if got != tc.want {
-				t.Errorf("expected:%d, got:%d %#v", tc.want, got, tc)
+				t.Errorf("expected:%t, got:%t %#v", tc.want, got, tc)
 				//	t.Errorf("expected:%d, got:%d", tc.want, got)
 			}
 		})
