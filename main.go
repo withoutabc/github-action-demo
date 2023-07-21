@@ -7,10 +7,6 @@ func main() {
 	fmt.Println(saying)
 }
 
-func smallCat() {
-
-}
-
 func Cat() string {
 	return "Miao~~~~~~~"
 }
